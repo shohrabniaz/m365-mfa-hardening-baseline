@@ -1,0 +1,114 @@
+﻿{
+    "Organisation":  "Coastal Managed IT (fictional SME) — default-MFA posture model",
+    "Mode":  "IntendedState",
+    "LiveChanges":  false,
+    "Ethics":  "Hardening checklist only. No offensive validation tooling.",
+    "Controls":  [
+                     {
+                         "Id":  "H-01",
+                         "Title":  "Block legacy authentication",
+                         "Phase":  "1 (needs CA / equivalent)",
+                         "Closes":  [
+                                        "BYP-01"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "NotAvailable — requires Conditional Access or Exchange auth policies where licensed"
+                     },
+                     {
+                         "Id":  "H-02",
+                         "Title":  "Restrict user consent to verified publishers / admin consent workflow",
+                         "Phase":  "0/1",
+                         "Closes":  [
+                                        "BYP-02"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Partial — Entra enterprise app consent settings available on many SKUs"
+                     },
+                     {
+                         "Id":  "H-03",
+                         "Title":  "Disable users from authorizing new risky apps; review existing grants",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-02"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Available — periodic admin review of enterprise applications"
+                     },
+                     {
+                         "Id":  "H-04",
+                         "Title":  "Shorten sign-in session / require reauth for sensitive apps",
+                         "Phase":  "1",
+                         "Closes":  [
+                                        "BYP-03",
+                                        "BYP-05"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "NotAvailable without CA sign-in frequency"
+                     },
+                     {
+                         "Id":  "H-05",
+                         "Title":  "Revoke sessions on high-risk leavers and suspected compromise",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-03"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Available — revoke sessions / reset auth methods runbook"
+                     },
+                     {
+                         "Id":  "H-06",
+                         "Title":  "Prefer authenticator app / phishing-resistant methods for admins",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-04"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Partial — method registration policies may need P1"
+                     },
+                     {
+                         "Id":  "H-07",
+                         "Title":  "Require MFA for all users (security defaults or CA)",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-04"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Available — security defaults"
+                     },
+                     {
+                         "Id":  "H-08",
+                         "Title":  "Device compliance for admin and privileged roles",
+                         "Phase":  "1",
+                         "Closes":  [
+                                        "BYP-03",
+                                        "BYP-05"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "NotAvailable — Intune + CA"
+                     },
+                     {
+                         "Id":  "H-09",
+                         "Title":  "Two monitored break-glass accounts; alert on use",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-06"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Available — process + mailbox/Teams alert"
+                     },
+                     {
+                         "Id":  "H-10",
+                         "Title":  "Weekly sign-in anomaly review (failed + unusual locations)",
+                         "Phase":  "0",
+                         "Closes":  [
+                                        "BYP-03",
+                                        "BYP-05",
+                                        "BYP-06"
+                                    ],
+                         "Status":  "Intended",
+                         "FreeTier":  "Available — Entra sign-in logs"
+                     }
+                 ],
+    "Phase0Count":  7,
+    "Phase1Count":  3
+}

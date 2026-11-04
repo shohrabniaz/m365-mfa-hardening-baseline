@@ -1,0 +1,57 @@
+﻿{
+    "Organisation":  "Coastal Managed IT (fictional SME) — default-MFA posture model",
+    "Mode":  "SyntheticResidual",
+    "PreExposurePercent":  67.5,
+    "PostExposurePercent":  31.7,
+    "AbsoluteReductionPoints":  35.8,
+    "RiskBand":  "Moderate — continue Phase 1 funding",
+    "Residual":  [
+                     {
+                         "Id":  "BYP-01",
+                         "Class":  "Legacy / basic authentication paths",
+                         "ResidualScore":  35,
+                         "MaxScore":  100,
+                         "Rationale":  "Closed only when CA/auth policies exist (Phase 1). Phase 0 documents the gap."
+                     },
+                     {
+                         "Id":  "BYP-02",
+                         "Class":  "OAuth consent phishing / illicit grant",
+                         "ResidualScore":  25,
+                         "MaxScore":  100,
+                         "Rationale":  "Consent restriction + grant review materially reduce this class."
+                     },
+                     {
+                         "Id":  "BYP-03",
+                         "Class":  "Session / refresh-token theft (post-MFA)",
+                         "ResidualScore":  40,
+                         "MaxScore":  100,
+                         "Rationale":  "Revoke runbook helps; device-bound CA needed for stronger reduction."
+                     },
+                     {
+                         "Id":  "BYP-04",
+                         "Class":  "Weak MFA methods",
+                         "ResidualScore":  30,
+                         "MaxScore":  100,
+                         "Rationale":  "Security defaults + stronger methods for admins; phishing-resistant fleet is later."
+                     },
+                     {
+                         "Id":  "BYP-05",
+                         "Class":  "Persistent sessions on unmanaged devices",
+                         "ResidualScore":  45,
+                         "MaxScore":  100,
+                         "Rationale":  "Residual until Intune+CA; mitigated partly by reauth guidance."
+                     },
+                     {
+                         "Id":  "BYP-06",
+                         "Class":  "Break-glass without monitoring",
+                         "ResidualScore":  15,
+                         "MaxScore":  100,
+                         "Rationale":  "Monitored break-glass + alerts largely close this process gap."
+                     }
+                 ],
+    "HonestLimits":  [
+                         "Free-tier lab cannot fully close BYP-01/BYP-03/BYP-05 without Conditional Access and device compliance.",
+                         "No live adversarial re-test was performed; residual is control-coverage scoring, not red-team proof.",
+                         "Do not claim phishing-resistant MFA fleet maturity without method registration evidence."
+                     ]
+}
