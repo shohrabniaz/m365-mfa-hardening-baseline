@@ -262,27 +262,36 @@ def build_report(pre, post):
         ),
         (
             "3. Pre-hardening results",
-            f"Aggregate exposure {pre_pct}% falls in a high false-confidence band: MFA is "
-            "present, yet legacy auth, consent phishing, and session reuse remain open. "
-            "Weak MFA methods and unmanaged devices add medium exposure. Break-glass "
-            "without monitoring is a process bypass. This matches the business problem — "
-            "a false sense of safety after ticking MFA.",
+            f"Aggregate exposure {pre_pct}% shows elevated false confidence: MFA is present, "
+            "yet legacy authentication paths, illicit OAuth consent, and post-MFA session "
+            "reuse remain largely open. Weak MFA methods and unmanaged persistent sessions "
+            "add medium exposure. Unmonitored break-glass accounts create a standing "
+            "process bypass. Together these explain why ‘we turned on MFA’ is not a "
+            "tenant-hardening statement. The scoring deliberately refuses to invent "
+            "portal screenshots or claim Identity Protection detections the Free-tier "
+            "laboratory does not have.",
         ),
         (
             "4. Hardening baseline",
-            "Phase 0 prioritises consent restriction, grant review, session-revoke "
-            "runbooks, stronger admin authenticators, universal MFA via security "
-            "defaults, monitored break-glass, and weekly sign-in review. Phase 1 adds "
-            "legacy-auth block, sign-in frequency, and device compliance when licences "
-            "exist. The SME checklist is a one-page owner-dated control register.",
+            "Phase 0 prioritises controls an SME can operate without Conditional Access: "
+            "restrict user consent and review enterprise app grants; maintain a session-"
+            "revoke runbook for leavers and suspected compromise; move admins off SMS-only "
+            "methods; keep MFA on for all interactive users via security defaults; operate "
+            "two monitored break-glass accounts; and name an owner for weekly sign-in "
+            "review. Phase 1 adds the licence-bound closures: block legacy authentication, "
+            "tighten sign-in frequency for sensitive apps, and require device compliance "
+            "for privileged roles. The SME checklist is the operational artefact — each "
+            "control has an ID, phase, and space for owner and date.",
         ),
         (
             "5. Residual risk",
-            f"Modelled residual {post_pct}% ({band}) with about {red} points of reduction. "
-            "Consent and break-glass classes fall sharply. Legacy auth and unmanaged "
-            "session classes remain elevated until Conditional Access and Intune are "
-            "funded — recorded as NotAvailable on Free tier rather than claimed. "
-            "Residual scoring is not a red-team proof.",
+            f"Modelled residual is {post_pct}% ({band}), about {red} points below the "
+            "pre-hardening figure. Consent phishing and break-glass classes drop sharply "
+            "under Phase 0 process controls. Legacy authentication and unmanaged-session "
+            "classes stay elevated until Conditional Access and Intune are funded; those "
+            "are marked NotAvailable on Free tier rather than claimed as Pass. Residual "
+            "scoring measures control coverage. It is not a red-team attestation and must "
+            "not be presented as proof that bypasses are impossible.",
         ),
         (
             "6. Ethics and limits",
